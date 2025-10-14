@@ -112,6 +112,98 @@ This project mirrors **real hospital systems**, showing practical skills that ar
 - Developed a **portfolio-ready project** that clearly shows real-world database management skills to recruiters
 
 ---
+## 🧪 Test Cases / Sample Run
+
+This section demonstrates **real-world scenarios** of the Hospital Admission Database System.  
+All SQL commands are shown along with **example outputs** to understand the project outcomes.
+
+---
+
+**Scenario2 :** Check the contents of all core tables to ensure setup is correct.
+
+```sql
+SELECT * FROM wards;
+SELECT * FROM rooms;
+SELECT * FROM patients;
+SELECT * FROM admissions;
+SELECT * FROM procedures_master;
+SELECT * FROM medicines_master;
+SELECT * FROM admissions_procedures;
+SELECT * FROM admissions_medicines;
+SELECT * FROM bills;
+
+**Sample Output**
+
+**Scenario 2:** Display all procedures and medicines administered for a specific admission.
+
+```sql
+SELECT p.first_name, p.last_name, pr.description AS procedure_done, m.name AS medicine_given, am.quantity
+FROM admissions a
+JOIN patients p ON a.patient_id = p.patient_id
+LEFT JOIN admissions_procedures ap ON a.admission_id = ap.admission_id
+LEFT JOIN procedures_master pr ON ap.procedure_id = pr.procedure_id
+LEFT JOIN admissions_medicines am ON a.admission_id = am.admission_id
+LEFT JOIN medicines_master m ON am.medicine_id = m.medicine_id
+WHERE a.admission_id = 1;
+
+**Sample Output**
+
+**Scenario 3:** Check existing bills before discharging a patient.
+
+```sql
+SELECT * FROM bills;
+SELECT * FROM admissions WHERE admission_id = 2;
+SELECT * FROM bills WHERE admission_id = 2;
+
+**Sample Output**
+
+**Scenario 4:** Discharge patient and generate final bill automatically.
+
+```sql
+EXEC discharge_patient(1);
+
+SELECT * FROM admissions WHERE admission_id = 1;
+SELECT * FROM bills WHERE admission_id = 1;
+
+**Sample Output**
+
+**Scenario 5:** Ensure all insert/update/delete actions are logged.(Veirfy Audit Log)
+
+```sql
+SELECT * FROM audit_log ORDER BY changed_at DESC;
+
+**Sample Output**
+
+**Scenario 6:** Create users with roles and verify authentication.
+
+```sql
+EXEC hospital_user_create('dr_brown', 'Doc#2025', 'role_doctor');
+EXEC hospital_user_create('nurse_emma', 'Nurse#2025', 'role_nurse');
+EXEC hospital_user_create('bill_tony', 'Bill#2025', 'role_billing');
+EXEC hospital_user_create('aud_jane', 'Audit#2025', 'role_auditor');
+COMMIT;
+
+SELECT * FROM hospital_users;
+
+SELECT hospital_user_authenticate('nurse_emma', 'Nurse#2025') AS role FROM dual;
+SELECT hospital_user_authenticate('dr_brown', 'Doc#2025') AS role FROM dual;
+
+**Sample Output**
+
+**Scenario 7:** Verify different views for Doctors, Nurses, Billing, and Auditors.
+
+```sql
+-- Doctor view
+SELECT * FROM v_patients_doctor;
+-- Nurse view
+SELECT * FROM v_patients_nurse;
+-- Billing view
+SELECT * FROM v_bills_financial;
+-- Auditor view
+SELECT * FROM v_audit_read;
+
+
+**Sample Output**
 
 ## 👨‍💻 Author
 **Ahsanul Haque Milon**  
