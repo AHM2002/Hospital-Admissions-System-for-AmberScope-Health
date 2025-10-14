@@ -131,7 +131,7 @@ SELECT * FROM medicines_master;
 SELECT * FROM admissions_procedures;
 SELECT * FROM admissions_medicines;
 SELECT * FROM bills;
-```sql
+```
 **Sample Output**
 
 **Scenario 2:** Display all procedures and medicines administered for a specific admission.
@@ -145,7 +145,7 @@ LEFT JOIN procedures_master pr ON ap.procedure_id = pr.procedure_id
 LEFT JOIN admissions_medicines am ON a.admission_id = am.admission_id
 LEFT JOIN medicines_master m ON am.medicine_id = m.medicine_id
 WHERE a.admission_id = 1;
-```sql
+```
 **Sample Output**
 
 **Scenario 3:** Check existing bills before discharging a patient.
@@ -154,7 +154,7 @@ WHERE a.admission_id = 1;
 SELECT * FROM bills;
 SELECT * FROM admissions WHERE admission_id = 2;
 SELECT * FROM bills WHERE admission_id = 2;
-```sql
+```
 **Sample Output**
 
 **Scenario 4:** Discharge patient and generate final bill automatically.
@@ -164,14 +164,14 @@ EXEC discharge_patient(1);
 
 SELECT * FROM admissions WHERE admission_id = 1;
 SELECT * FROM bills WHERE admission_id = 1;
-```sql
+```
 **Sample Output**
 
 **Scenario 5:** Ensure all insert/update/delete actions are logged.(Veirfy Audit Log)
 
 ```sql
 SELECT * FROM audit_log ORDER BY changed_at DESC;
-```sql
+```
 **Sample Output**
 
 **Scenario 6:** Create users with roles and verify authentication.
@@ -182,12 +182,11 @@ EXEC hospital_user_create('nurse_emma', 'Nurse#2025', 'role_nurse');
 EXEC hospital_user_create('bill_tony', 'Bill#2025', 'role_billing');
 EXEC hospital_user_create('aud_jane', 'Audit#2025', 'role_auditor');
 COMMIT;
-```sql
 SELECT * FROM hospital_users;
 
 SELECT hospital_user_authenticate('nurse_emma', 'Nurse#2025') AS role FROM dual;
 SELECT hospital_user_authenticate('dr_brown', 'Doc#2025') AS role FROM dual;
-```sql
+```
 **Sample Output**
 
 **Scenario 7:** Verify different views for Doctors, Nurses, Billing, and Auditors.
@@ -201,7 +200,7 @@ SELECT * FROM v_patients_nurse;
 SELECT * FROM v_bills_financial;
 -- Auditor view
 SELECT * FROM v_audit_read;
-```sql
+```
 **Sample Output**
 
 ## 👨‍💻 Author
