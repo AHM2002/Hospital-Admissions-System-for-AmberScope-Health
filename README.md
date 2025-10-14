@@ -1,14 +1,13 @@
 # Hospital Admission Database System
 
-A **secure, role-based Hospital Admission Database** built in **Oracle 19c**.  
+A **secure, role-based Hospital Admission Database** built for **AmberScope Health** in **Oracle 19c**.  
 This system manages patient admissions, medical procedures, medicines, billing, and user access with auditing and security.  
 It is designed to simulate a **real-world hospital environment** and demonstrate practical database management skills.
 
 ---
 
 ## 🏥 Background
-Hospitals deal with sensitive patient data every day, including personal details, medical history, treatments, and billing information.  
-Managing this data efficiently and securely is crucial to ensure **patient safety, privacy, and operational efficiency**.  
+AmberScope Health operates several hospitals across Australia, and managing patient information manually is both slow and risky. Hospitals need a **centralized system** to keep track of patients, surgeries, medications, and expenses while keeping sensitive data safe.  
 
 In this project, I designed and implemented a **hospital admission database system** that reflects real-world challenges in healthcare management.  
 It simulates multiple user roles, encrypted sensitive data, automated billing, and full audit trails — just like a real hospital system.
