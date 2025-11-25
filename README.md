@@ -54,7 +54,7 @@ The system follows a **three-tier architecture**, just like many real-world hosp
    - Security features like RBAC, encryption, and backup/recovery protect sensitive data.
 
 **Diagram Placeholder:**  
-![Database Architecture Diagram](docs/Architecture_Diagram.png)
+![Database Architecture Diagram](resource/architecture.png)
 
 ---
 
