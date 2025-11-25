@@ -71,7 +71,7 @@ The database contains the following main entities:
 - **audit_log** → Logs all sensitive changes and user activities
 
 **Diagram Placeholder:**  
-![ERD Diagram](docs/ERD_Diagram.png)
+![ERD Diagram](resource/erd.jpeg)
 
 ---
 
