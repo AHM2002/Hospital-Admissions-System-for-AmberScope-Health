@@ -205,5 +205,5 @@ SELECT * FROM v_audit_read;
 
 ## 👨‍💻 Author
 **Ahsanul Haque Milon**  
-Bangladesh | Aspiring Data Analyst / Database Developer  
-[LinkedIn](#) | [Portfolio](#)
+Data Analyst | Data Scientist | Machine Learning Engineer
+[LinkedIn](https://www.linkedin.com/in/milon48/) | [Portfolio](https://ahosanulhuqmilon.com/)
